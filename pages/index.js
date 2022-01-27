@@ -1,5 +1,6 @@
 import Navbar from '../components/navbar';
 import User from '../components/User';
+import Head from 'next/head';
 
 const IndexPage = ({users}) => {      
 return (
@@ -14,10 +15,13 @@ return (
                 }
             `}
         </style>
+        <Head>
+            <title>All Users || Home</title>
+        </Head>
         <div>
             <Navbar />
             <div className="usersContainer">
-                {users.data.map(user =><User user={user} />)}
+                {users.data.map(user =><User key={user.id} user={user} />)}
             </div>
         </div>
     </>

@@ -1,16 +1,22 @@
 import styles from '../styles/User.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function User({user}){
     return (
-        <div className={styles.main}>
-            <div className={styles.user}>
-                <img src={user.avatar} alt="" />
-                <p>Name : {user.first_name} {user.last_name}</p>
-                <p>Email : {user.email}</p>
-                <Link href="/">Home</Link>
+        <>
+            <Head>
+                <title>{user.first_name} || User</title>
+            </Head>
+            <div className={styles.main}>
+                <div className={styles.user}>
+                    <img src={user.avatar} alt="" />
+                    <p>Name : {user.first_name} {user.last_name}</p>
+                    <p>Email : {user.email}</p>
+                    <Link href="/">Home</Link>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
